@@ -1,0 +1,91 @@
+# ==========================================
+# Unreal Engine .gitignore
+# ==========================================
+
+# Unreal Engine generated folders
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+
+# Build / packaged output
+Build/
+Builds/
+StagedBuilds/
+
+# Visual Studio / Rider / IDE files
+.vs/
+.idea/
+.vscode/
+
+# Visual Studio generated files
+*.suo
+*.user
+*.userosscache
+*.sln
+*.VC.db
+*.VC.opendb
+
+# Unreal generated project files
+*.opensdf
+*.sdf
+*.sln
+*.suo
+*.xcodeproj
+*.xcworkspace
+
+# Build artifacts
+*.dll
+*.exe
+*.app
+*.dylib
+*.so
+*.pdb
+*.lib
+*.exp
+
+# Unreal logs / crash reports
+*.log
+CrashReportClient/
+Saved/Logs/
+Saved/Crashes/
+
+# Automation / temporary files
+*.tmp
+*.temp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# JetBrains Rider
+*.sln.iml
+.idea/
+
+# Unreal cache
+DerivedDataCache/
+Saved/Collections/
+Saved/Config/
+Saved/Autosaves/
+Saved/Backup/
+
+# Niagara cache
+Saved/Niagara/
+
+# HLOD / generated data
+Saved/HLOD/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# ==========================================
+# Keep important Unreal files
+# ==========================================
+!Config/
+!Content/
+!Source/
+!Plugins/
+!*.uproject
+!*.uplugin

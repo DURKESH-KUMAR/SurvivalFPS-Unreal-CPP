@@ -18,7 +18,11 @@ public class SurvivalFPS : ModuleRules
 			"StateTreeModule",
 			"GameplayStateTreeModule",
 			"UMG",
-			"Slate"
+			"Slate",
+			"Niagara",
+			"NavigationSystem",
+			"GameplayTasks"
+
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });

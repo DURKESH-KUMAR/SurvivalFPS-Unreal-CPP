@@ -52,7 +52,10 @@ void ASurvivalFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 		// Jumping
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Started, this, &ASurvivalFPSCharacter::DoJumpStart);
 		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ASurvivalFPSCharacter::DoJumpEnd);
-
+		
+		//Bind reload event 
+		// PlayerInputComponent->BindAction("Reload",IE_Pressed,this,&ASurvivalFPSCharacter::Reload);
+		EnhancedInputComponent->BindAction(ReloadAction, ETriggerEvent::Started, this, &ASurvivalFPSCharacter::Reload);
 		// Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &ASurvivalFPSCharacter::MoveInput);
 
@@ -66,6 +69,35 @@ void ASurvivalFPSCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInp
 	}
 }
 
+
+void ASurvivalFPSCharacter::Reload()
+{
+	UAnimInstance* pAnimInstance= FirstPersonMesh->GetAnimInstance();
+	if(pAnimInstance!=nullptr){
+		if(m_pReloadMontage != nullptr)
+		{
+			//Play reload montage
+			pAnimInstance->Montage_Play(m_pReloadMontage,1.f);
+		}
+		
+	}
+}
+void ASurvivalFPSCharacter::OnPrimaryAction()
+{
+	UAnimInstance* pAnimInstance=FirstPersonMesh->GetAnimInstance();
+	if(pAnimInstance!=nullptr){
+		if(m_pReloadMontage!=nullptr)
+		{
+			//Interrupt reload montage
+			pAnimInstance->Montage_Stop(0.2f,m_pReloadMontage);
+		}
+		if(m_pShootMontage!=nullptr)
+		{
+			//Play shooting montage 
+			pAnimInstance->Montage_Play(m_pShootMontage,1.f);
+		}		
+	}
+}
 
 void ASurvivalFPSCharacter::MoveInput(const FInputActionValue& Value)
 {

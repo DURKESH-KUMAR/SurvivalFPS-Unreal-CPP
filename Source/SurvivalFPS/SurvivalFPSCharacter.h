@@ -48,9 +48,13 @@ protected:
 	/** Mouse Look Input Action */
 	UPROPERTY(EditAnywhere, Category ="Input")
 	class UInputAction* MouseLookAction;
+	UPROPERTY(EditAnywhere,Category="Input")
+	class UInputAction* ReloadAction;
 	
 public:
 	ASurvivalFPSCharacter();
+	UFUNCTION()
+	void OnPrimaryAction();
 
 protected:
 
@@ -89,6 +93,16 @@ public:
 
 	/** Returns first person camera component **/
 	UCameraComponent* GetFirstPersonCameraComponent() const { return FirstPersonCameraComponent; }
+	
+	//Reload Montage
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Animation")
+	UAnimMontage* m_pReloadMontage;
+	//Shoot Montage
+	UPROPERTY(EditAnywhere,BlueprintReadWrite,Category="Animation")
+	UAnimMontage* m_pShootMontage;
+
+	void Reload();
+
 
 };
 
